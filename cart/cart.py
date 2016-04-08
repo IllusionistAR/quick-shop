@@ -49,7 +49,7 @@ class Cart(object):
         """
         product_id = self.cart.keys()
         # get the product objects and add them to the cart
-        products = Product.objects.filter(id__in=product_ids)
+        products = Product.objects.filter(id__in=product_id)
         for product in products:
             self.cart[str(product.id)]['product'] = product
 
@@ -70,4 +70,4 @@ class Cart(object):
     def clear(self):
         # remove cart from session
         del self.session[settings.CART_SESSION_ID]
-            self.session.modified = True
+        self.session.modified = True
