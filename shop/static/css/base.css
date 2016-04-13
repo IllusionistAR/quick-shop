@@ -1,0 +1,49 @@
+#header {
+  padding: 1em;
+}
+
+#subheader {
+  background-color: #ebebe0;
+  padding: 1.25em;
+  right: auto;
+  text-align: right;
+}
+
+#sidebar {
+  float: left;
+  min-height: 100%;
+  padding: 10px;
+}
+
+#sidebar li {
+  padding: 10px;
+  list-style: none;
+}
+
+#sidebar ul {
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+}
+
+.selected {
+  background-color: lightblue;
+}
+
+.product-list {
+  float: left;
+  width: 1000px;
+  margin-left: 50px;
+}
+
+.item {
+  float: left;
+  width: 250px;
+  margin: 10px;
+  text-align: center;
+}
+
+.item img {
+  width: 250px;
+  height: 400px;
+}
