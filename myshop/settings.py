@@ -111,3 +111,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # cart session information
 
 CART_SESSION_ID = 'cart'
+
+
+# write emails to console for testing
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
