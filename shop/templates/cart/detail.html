@@ -7,7 +7,7 @@
 
 {% block content %}
   <h1>Your Shopping Cart</h1>
-  <table class="cart">
+  <table class="u-full-width">
     <thead>
       <tr>
         <th>Image</th>
@@ -24,7 +24,7 @@
           <tr>
             <td>
               <a href="{{ product.get_absolute_url }}">
-                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+                <img style="max-width: 150px;max-height=150px;" src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
               </a>
             </td>
             <td>{{ product.name }}</td>
@@ -36,21 +36,25 @@
                 {% csrf_token %}
               </form>
             </td>
-            <td><a href="{% url "cart:cart_remove" product.id %}">Remove</a></td>
+            <td><a href="{% url "cart:cart_remove" product.id %}" class="button">Remove</a></td>
             <td class="num">${{ item.price }}</td>
             <td class="num">${{ item.total_price }}</td>
           </tr>
         {% endwith %}
       {% endfor %}
       <tr class="total">
-        <td>Total</td>
+        <td><b>Total</b></td>
         <td colspan="4"></td>
         <td class="num">${{ cart.get_total_price }}</td>
       </tr>
     </tbody>
   </table>
-  <p class="text-right">
-    <a href="{% url "shop:product_list" %}" class="button-light">Continue Shopping</a>
-    <a href="{% url "orders:order_create" %}" class="button">Checkout</a>
+  <div class="row">
+    <div style="text-align: right;" class="u-pull-right five columns">
+  <p>
+    <a href="{% url "shop:product_list" %}" class="button">Continue Shopping</a>
+    <a href="{% url "orders:order_create" %}" class="button button-primary">Checkout</a>
   </p>
+</div>
+</div>
 {% endblock %}

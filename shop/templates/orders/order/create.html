@@ -20,9 +20,9 @@
     <p>Total: ${{ cart.get_total_price }}</p>
   </div>
 
-  <form action="." method="post" class="order-form">
+  <form action="." method="post" class="u-full-width">
     {{ form.as_p }}
-    <p><input type="submit" value="Place Order"></p>
+    <p><input type="submit" value="Place Order" class="button button-primary"></p>
     {% csrf_token %}
   </form>
 {% endblock %}

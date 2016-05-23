@@ -1,34 +1,49 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <title>{% block title %}My Shop{% endblock %}</title>
-  <link href="{% static "css/base.css" %}"
-rel="stylesheet"
+  <!-- Mobile Specific Meta Tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Fonts -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <!-- CSS Files -->
+  <link href="{% static "css/skeleton.css" %}" rel="stylesheet">
+  <link href="{% static "css/normalize.css" %}" rel="stylesheet">
 </head>
 <body>
-  <div id="header">
-    <a href="/" class="logo">My Shop</a>
-  </div>
-  <div id="subheader">
-    <div class="cart-subheader">
-      {% with total_items=cart|length %}
-        {% if cart|length > 0 %}
-          Your cart:
-          <a href="{% url "cart:cart_detail" %}">
-            {{ total_items }} item{{ total_items|pluralize }},
-            ${{ cart.get_total_price }}
+  <div class="container">
+    <div class="row">
+      <div class="three columns">
+        <div id="header">
+          <a href="/" class="logo" alt="Logo">
+            <img style="max-width: 150px; max-height: 150px;" src="{% static "images/logo.png" %}"></img>
           </a>
-        {% else %}
-          Your cart is empty.
-        {% endif %}
-      {% endwith %}
+        </div>
+      </div>
+        <div class="offset-by-six three columns">
+        <div id="subheader">
+          <div class="cart-subheader">
+            {% with total_items=cart|length %}
+              {% if cart|length > 0 %}
+                <h5>Your cart</h5>
+                <a class="button button-primary" href="{% url "cart:cart_detail" %}">
+                  {{ total_items }} item{{ total_items|pluralize }},
+                  ${{ cart.get_total_price }}
+                </a>
+              {% else %}
+                <h5>Your cart is empty.</h5>
+              {% endif %}
+            {% endwith %}
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div id="content">
-    {% block content %}
-    {% endblock %}
+      <div id="content">
+        {% block content %}
+        {% endblock %}
+      </div>
   </div>
 </body>
 <html>
