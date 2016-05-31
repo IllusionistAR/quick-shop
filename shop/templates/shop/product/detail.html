@@ -1,8 +1,9 @@
 {% extends "shop/base.html" %}
 {% load static %}
+{% load embed_video_tags %}
 
 {% block title %}
-  {% if category %}{{ category.title }}{% else %}Products{% endif %}
+  {{ product.name }} - kakahuwai.co.nz
 {% endblock %}
 
 {% block content %}
@@ -22,6 +23,9 @@
     <pre><code>
       {{ product.description|linebreaks }}
     </code></pre>
+      <div class="u-max-full-width">
+        {% video product.video 'tiny' %}
+      </div>
     </div>
   </div>
 {% endblock %}

@@ -1,3 +1,4 @@
 quick-shop
 Pillow==2.90
 celery==3.1.18
+django-embed-video
